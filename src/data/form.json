@@ -1,0 +1,18 @@
+{
+  "name": {
+    "autofocus": true,
+    "label": "Product Name",
+    "placeholder": "Ex: Table",
+    "required": true,
+    "type": "text"
+  },
+  "price": {
+    "autofocus": false,
+    "label": "Price",
+    "max": 99999,
+    "min": 1,
+    "placeholder": "Ex: 800",
+    "required": true,
+    "type": "number"
+  }
+}
