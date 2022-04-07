@@ -16,8 +16,8 @@ export default function ModalForm({ listState, modalState }) {
   const [price, setPrice] = useState("");
 
   // Methods
-  function onSubmit() {
-    
+  function onSubmit(event) {
+    event.preventDefault();
     const newItem = {
       id: list.length,
       name: name,
@@ -40,7 +40,7 @@ export default function ModalForm({ listState, modalState }) {
   if (!showModal) return null;
 
   return (
-    <form onSubmit={onSubmit} >
+    <form onSubmit={(event) => onSubmit(event)} >
       <h2>Create new item</h2>
       <InputField setup={form.name} state={[name, setName]} validation={validateName}/>
       <InputField setup={form.price} state={[price, setPrice]} validation={validatePrice}/>
