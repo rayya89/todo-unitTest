@@ -30,30 +30,30 @@ test("Creates a task item when submit the correct info", () => {
   expect(newTask).toBeInTheDocument();
 });
 
-// test("Don't create a task item when submit incorrect info", () => {
-//     // Arrange
-//     const incorrectName = "";
-//     const incorrectPrice = "-1";
+test("Don't create a task item when submit incorrect info", () => {
+    // Arrange
+    const incorrectName = "";
+    const incorrectPrice = "-1";
   
-//     render(<App />);
+    render(<App />);
   
-//     // Act
-//     // Step 1 (open modal)
-//     const firstButton = screen.queryByText(/add tasks/i);
-//     fireEvent.click(firstButton);
+    // Act
+    // Step 1 (open modal)
+    const firstButton = screen.queryByText(/add item/i);
+    fireEvent.click(firstButton);
   
-//     // Step 2 (fill the form)
-//     const inputName = screen.getByLabelText(/product name/i);
-//     const inputPrice = screen.getByLabelText(/product price/i);
-//     const secondButton = screen.queryByText(/submit/i);
-//     fireEvent.change(inputName, { target: { value: incorrectName } });
-//     fireEvent.change(inputPrice, { target: { value: incorrectPrice } });
-//     fireEvent.click(secondButton);
+    // Step 2 (fill the form)
+    const inputName = screen.getByLabelText(/product name/i);
+    const inputPrice = screen.getByLabelText(/price/i);
+    const secondButton = screen.queryByText(/submit/i);
+    fireEvent.change(inputName, { target: { value: incorrectName } });
+    fireEvent.change(inputPrice, { target: { value: incorrectPrice } });
+    fireEvent.click(secondButton);
   
-//     // Step 3 (check that the task was created)
-//     const newTask = screen.queryByText(/, -1:-/i);
+    // Step 3 (check that the task was created)
+    const newTask = screen.queryByText(/ ,-1:-/i);
   
-//     // Assert
-//     expect(newTask).not.toBeInTheDocument();
-//   });
+    // Assert
+    expect(newTask).not.toBeInTheDocument();
+  });
   
