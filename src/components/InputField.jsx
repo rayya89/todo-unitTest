@@ -2,7 +2,7 @@
 import {useState} from "react"
 
 export default function InputField({ setup, state, validation }) {
-  // safeguard
+  // Safeguard
   if (setup === undefined) throw new Error("The setup prop is missing");
   if (state === undefined) throw new Error("The state prop is missing");
 

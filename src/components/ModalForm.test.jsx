@@ -3,8 +3,10 @@ import { render, screen } from "@testing-library/react";
 
 // Project files
 import ModalForm from "./ModalForm";
+import validateName from "../scripts/validateName";
+import InputField from "./InputField";
 
-test("Opens when you pass true on showModal", () => {
+test("Opens when showModal is setted to true", () => {
   // Arrange
   const listState = [[], () => {}];
   const goodModalState = [true, () => {}];
@@ -18,7 +20,7 @@ test("Opens when you pass true on showModal", () => {
   expect(titleElement).toBeInTheDocument();
 });
 
-test("Don't open when you pass false on showModal", () => {
+test("Doesn't open when showModal is setted to false", () => {
   // Arrange
   const listState = [[], () => {}];
   const badModalState = [false, () => {}];
@@ -31,3 +33,26 @@ test("Don't open when you pass false on showModal", () => {
   // Assert
   expect(titleElement).not.toBeInTheDocument();
 });
+
+// test("Shows error message when validation fails", () => {
+//   // Arrange
+//   const setup = {"label":"validatedField"};
+//   const state = ["",()=>{}];
+//   const validation = validateName("");
+  
+//   const listState = [[], () => {}];
+//   const goodModalState = [true, () => {}];
+
+//   render(<ModalForm listState={listState} modalState={goodModalState} />);
+//   render( <InputField setup={setup} state={state} validation={validation}/>);
+
+//   // Act
+//   const titleElement = screen.queryByText(/validatedField/i);
+
+//   // Act
+//   const errorMessage = screen.queryByText(/hh/i);
+  
+//   // Assert
+//   screen.debug();
+//   expect(errorMessage).toBeInTheDocument();
+// });
