@@ -3,12 +3,13 @@ import { render, screen, fireEvent } from "@testing-library/react";
 
 // Project files
 import App from "./App";
+import { TasksProvider } from "./state/TasksContext";
 
 test("Creates a task item when submitting a valid name and price", () => {
   // Arrange
   const correctName = "Chair";
   const correctPrice = "900";
-  render(<App />);
+  render(<TasksProvider><App /></TasksProvider>);
 
   // Act
   const firstButton = screen.queryByText(/add item/i);
@@ -30,7 +31,7 @@ test("Creates a task item when submitting a valid name and price", () => {
     // Arrange
     const incorrectName = "";
     const correctPrice = "500";
-    render(<App />);
+    render(<TasksProvider><App /></TasksProvider>);
   
     // Act
     // Step 1 (open modal)
@@ -55,7 +56,7 @@ test("Don't create a task item when submitting invalid price", () => {
   // Arrange
   const incorrectName = "Chair";
   const incorrectPrice = "-1";
-  render(<App />);
+  render(<TasksProvider><App /></TasksProvider>);
 
   // Act
   // Step 1 (open modal)
@@ -80,7 +81,7 @@ test("Don't create a task item when submitting invalid name and price", () => {
   // Arrange
   const incorrectName = "";
   const correctPrice = "-1";
-  render(<App />);
+  render(<TasksProvider><App /></TasksProvider>);
 
   // Act
   // Step 1 (open modal)
@@ -103,7 +104,7 @@ test("Don't create a task item when submitting invalid name and price", () => {
 
 test("Modal closes when clicking cancel button",()=>{
   //Arrange
-  render(<App/>);
+  render(<TasksProvider><App /></TasksProvider>);
 
   //Act
   // Step 1 (open modal)
@@ -124,13 +125,12 @@ test("Goes to the Welcome screen when the list is empty", () => {
   // Arrange
   const fakeData = [];
   Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
-  render(<App/>)
+  render(<TasksProvider><App /></TasksProvider>)
 
   // Act
   const titleElement = screen.queryByText(/EIKA's shopping list/i);
 
   // Assert
-  screen.debug();
   expect(titleElement).toBeInTheDocument();
 });  
 
@@ -150,7 +150,7 @@ test("Goes to the Shopping screen when the list is not empty", () => {
   const fakeData = JSON.stringify(fakeList);
 
   Storage.prototype.getItem = jest.fn(() => fakeData);
-  render(<App />);
+  render(<TasksProvider><App /></TasksProvider>);
 
   // Act
   const titleElement = screen.queryByText(/Shopping List/i);

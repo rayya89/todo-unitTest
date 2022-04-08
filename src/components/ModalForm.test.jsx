@@ -3,15 +3,15 @@ import { render, screen } from "@testing-library/react";
 
 // Project files
 import ModalForm from "./ModalForm";
-import validateName from "../scripts/validateName";
+import { TasksProvider } from "../state/TasksContext";
+import validateName from "../scripts/validation/validateName";
 import InputField from "./InputField";
 
 test("Opens when showModal is setted to true", () => {
   // Arrange
-  const listState = [[], () => {}];
   const goodModalState = [true, () => {}];
 
-  render(<ModalForm listState={listState} modalState={goodModalState} />);
+  render(<TasksProvider><ModalForm modalState={goodModalState} /></TasksProvider>);
 
   // Act
   const titleElement = screen.queryByText(/Create new item/i);
@@ -22,10 +22,9 @@ test("Opens when showModal is setted to true", () => {
 
 test("Doesn't open when showModal is setted to false", () => {
   // Arrange
-  const listState = [[], () => {}];
   const badModalState = [false, () => {}];
 
-  render(<ModalForm listState={listState} modalState={badModalState} />);
+  render(<TasksProvider><ModalForm modalState={badModalState} /></TasksProvider>);
 
   // Act
   const titleElement = screen.queryByText(/Create new item/i);
@@ -49,10 +48,10 @@ test("Doesn't open when showModal is setted to false", () => {
 //   // Act
 //   const titleElement = screen.queryByText(/validatedField/i);
 
-//   // Act
+//   
 //   const errorMessage = screen.queryByText(/hh/i);
   
 //   // Assert
-//   screen.debug();
+//   
 //   expect(errorMessage).toBeInTheDocument();
 // });
