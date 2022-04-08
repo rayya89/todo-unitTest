@@ -22,8 +22,7 @@ export default function ModalForm({ listState, modalState }) {
       id: list.length,
       name: name,
       price: price,
-      completed: false,
-      imageURL: "",
+      completed: false
     };
 
     setList([...list, newItem]);

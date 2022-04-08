@@ -3,24 +3,23 @@ import { useState } from "react";
 
 // Project files
 import ModalForm from "./components/ModalForm";
+import ShoppingScreen from "./screens/ShoppingScreen";
+import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
   // Local state
   const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  // Component
-  const Items = list.map((item) => (
-    <li key={item.id}>
-      {item.name}, {item.price}:-
-    </li>
-  ));
+//Methods
+function openModal() {
+  setShowModal(true);
+}
 
   return (
     <div className="App">
-      <h1>Shopping List</h1>
-      <ul>{Items}</ul>
-      <button onClick={() => setShowModal(true)}>Add item</button>
+      {list.length === 0 && <WelcomeScreen openModal={openModal}/>}
+      {list.length >0 && <ShoppingScreen listState={[list,setList]} openModal={openModal}/>}
       <ModalForm
         listState={[list, setList]}
         modalState={[showModal, setShowModal]}
