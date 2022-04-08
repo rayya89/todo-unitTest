@@ -46,10 +46,7 @@ test("Doesn't open when showModal is setted to false", () => {
 //   render( <InputField setup={setup} state={state} validation={validation}/>);
 
 //   // Act
-//   const titleElement = screen.queryByText(/validatedField/i);
-
-//   
-//   const errorMessage = screen.queryByText(/hh/i);
+//   const errorMessage = "You must enter the product name";
   
 //   // Assert
 //   
