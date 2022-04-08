@@ -33,16 +33,20 @@ export default function ModalForm({ modalState }) {
     setShowModal(null); //or false
   }
 
-  // Safeguard
+  //Safeguard
   if (!showModal) return null;
 
   return (
-    <form onSubmit={(event) => onSubmit(event)} >
-      <h2>Create new item</h2>
-      <InputField setup={form.name} state={[name, setName]} validation={validateName}/>
-      <InputField setup={form.price} state={[price, setPrice]} validation={validatePrice}/>
-      <button>Submit</button>
-      <button onClick={resetForm}>Cancel</button>
-    </form>
+    <div className="modal">
+      <div className="background">
+        <form className="form" onSubmit={(event) => onSubmit(event)} >
+          <h2>Create new item</h2>
+          <InputField setup={form.name} state={[name, setName]} validation={validateName}/>
+          <InputField setup={form.price} state={[price, setPrice]} validation={validatePrice}/>
+          <button className="button-primary">Submit</button>
+          <button className="button-secondary" onClick={resetForm}>Cancel</button>
+        </form>
+      </div>
+    </div>
   );
 }

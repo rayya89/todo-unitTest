@@ -1,0 +1,17 @@
+.input-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-medium);
+    text-align: left;
+}
+
+.input-field input{
+    background-color: var(--color-grey);
+    border-radius: 4px;
+    border: none;
+    padding: var(--space-small);
+}
+
+.input-field small{
+    color: var(--color-red);
+}

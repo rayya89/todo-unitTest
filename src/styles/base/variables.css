@@ -1,0 +1,20 @@
+:root {
+
+    --color-primary: #0058a3;
+    --color-text: black;
+    --color-grey:#e2e1e2;
+    --color-red: #a34448;
+  }
+  
+  /* Space */
+  :root {
+    --space-small: 8px;
+    --space-medium: 16px;
+    --space-big: 24px;
+    --space-ultra: 48px;
+  }
+  
+  /* Other */
+  :root {
+    --border-radius: var(--space-small);
+  }
