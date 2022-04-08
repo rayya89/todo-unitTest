@@ -4,11 +4,13 @@ import { useState } from "react";
 // Project files
 import InputField from "./InputField";
 import form from "../data/form.json";
-import validateName from "../scripts/validateName"
-import validatePrice from "../scripts/validatePrice"
+import validateName from "../scripts/validation/validateName"
+import validatePrice from "../scripts/validation/validatePrice"
+import { useTasks } from "../state/TasksContext"
 
-export default function ModalForm({ listState, modalState }) {
-  const [list, setList] = listState;
+export default function ModalForm({ modalState }) {
+
+  const {addItem} = useTasks();
   const [showModal, setShowModal] = modalState;
 
   // Local state
@@ -18,14 +20,7 @@ export default function ModalForm({ listState, modalState }) {
   // Methods
   function onSubmit(event) {
     event.preventDefault();
-    const newItem = {
-      id: list.length,
-      name: name,
-      price: price,
-      completed: false
-    };
-
-    setList([...list, newItem]);
+    addItem(name,price);
     resetForm();
   }
 

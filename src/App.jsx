@@ -2,13 +2,17 @@
 import { useState, useEffect } from "react";
 
 // Project files
+import { useTasks } from "./state/TasksContext"
 import ModalForm from "./components/ModalForm";
 import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 
 export default function App() {
+
+  const { tasks, setTasks } = useTasks(); 
+
   // Local state
-  const [list, setList] = useState([]);
+  // const [list, setList] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
   // Properties
@@ -20,8 +24,8 @@ function openModal() {
   setShowModal(true);
 }
 
-useEffect(() => loadData(storageKey, setList), []);
-useEffect(() => saveData(storageKey, list), [list]);
+useEffect(() => loadData(storageKey, setTasks), []);
+useEffect(() => saveData(storageKey, tasks), [tasks]);
 
 function loadData(key, setter) {
   const rawData = localStorage.getItem(key);
@@ -36,12 +40,12 @@ function saveData(key, getter) {
   localStorage.setItem(key, data);
 }
 
+
   return (
     <div className="App">
-      {list.length === 0 && <WelcomeScreen openModal={openModal}/>}
-      {list.length >0 && <ShoppingScreen listState={[list,setList]} openModal={openModal}/>}
+      {tasks.length === 0 && <WelcomeScreen openModal={openModal}/>}
+      {tasks.length >0 && <ShoppingScreen openModal={openModal}/>}
       <ModalForm
-        listState={[list, setList]}
         modalState={[showModal, setShowModal]}
       />
     </div>

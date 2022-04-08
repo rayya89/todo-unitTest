@@ -1,34 +1,17 @@
-import React from 'react'
+// Project files
+import sortByName from "../scripts/sorter/sortByName";
+import sortByPrice from "../scripts/sorter/sortByPrice";
+import { useTasks } from "../state/TasksContext"
 
-export default function Sorter({ listState }) {
+export default function Sorter() {
 
-    const [list, setList] =listState;
-
-  // Methods
-  function sortByName() {
-    const clonedList = [...list];
-    const sortedList = clonedList.sort((a, b) => {
-      const productA = a.name.toUpperCase();
-      const productB = b.name.toUpperCase();
-
-      return productA > productB ? 1 : -1;
-    });
-
-    setList(sortedList);
-  }
-
-  function sortByPrice() {
-    const clonedList = [...list];
-    clonedList.sort((a, b) => b.price - a.price);
-
-    setList(clonedList);
-  }
-
+  const { tasks, replaceTasks } = useTasks();
+    
   return (
     <section>
       Sort by:
-      <button onClick={sortByName}>Name</button>
-      <button onClick={sortByPrice}>Price</button>
+      <button onClick={() => replaceTasks(tasks, sortByName(tasks))}>Name</button>
+      <button onClick={() => replaceTasks(tasks, sortByPrice(tasks))}>Price</button>
     </section>
   );
 }
