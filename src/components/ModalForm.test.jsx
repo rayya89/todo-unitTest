@@ -33,6 +33,15 @@ test("Doesn't open when showModal is setted to false", () => {
   expect(titleElement).not.toBeInTheDocument();
 });
 
+test("Throws error when modalState prop is missing", () => {
+  
+  // Act
+  const ModalElement = ()=>render(<TasksProvider><ModalForm/></TasksProvider>);
+
+  // Assert
+  expect(ModalElement).toThrow("The modalState prop is missing");
+});
+
 // test("Shows error message when validation fails", () => {
 //   // Arrange
 //   const setup = {"label":"validatedField"};

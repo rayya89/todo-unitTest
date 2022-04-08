@@ -1,6 +1,9 @@
 import React from 'react'
 
 export default function WelcomeScreen({ openModal }) {
+  //Safeguard
+  if (openModal === undefined) throw new Error("The openModal prop is missing");
+
   return (
     <div>
     <h1>EIKA's shopping list</h1>

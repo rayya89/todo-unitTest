@@ -39,7 +39,7 @@ export function TasksProvider({ children }) {
       function replaceTasks(list, newList) {
         const errorText = "The new list is smaller than the old one";
     
-        // Safeguard
+        // Safeguard (ui test #22)
         if (newList.length !== list.length) throw new Error(errorText);
     
         setTasks(newList);

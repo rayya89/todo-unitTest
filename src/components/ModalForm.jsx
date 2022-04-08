@@ -10,6 +10,9 @@ import { useTasks } from "../state/TasksContext"
 
 export default function ModalForm({ modalState }) {
 
+  //Safeguard
+  if (modalState === undefined) throw new Error("The modalState prop is missing");
+
   const {addItem} = useTasks();
   const [showModal, setShowModal] = modalState;
 

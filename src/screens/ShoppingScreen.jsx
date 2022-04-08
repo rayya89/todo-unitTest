@@ -5,6 +5,10 @@ import Sorter from "../components/Sorter";
 import { useTasks } from "../state/TasksContext"
 
 export default function ShoppingScreen({ openModal }) {
+
+    //Safeguard
+  if (openModal === undefined) throw new Error("The openModal prop is missing");
+
     const { tasks } = useTasks();
 
     //Local state

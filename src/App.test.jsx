@@ -160,3 +160,12 @@ test("Goes to the Shopping screen when the list is not empty", () => {
   expect(titleElement).toBeInTheDocument();
   expect(loadedTasks).toBeInTheDocument();
 });
+
+test("Doesn't render and throws error win not wrapping the parent component with the context provider", () => {
+  // Act
+  const AppComponent = ()=> render( <App/> );
+  
+  // Assert
+  expect(AppComponent).toThrow("You need to wrap the parent component with <TasksProvider/>");
+  
+});
