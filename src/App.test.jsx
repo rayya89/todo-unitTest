@@ -122,11 +122,41 @@ test("Modal closes when clicking cancel button",()=>{
 
 test("Goes to the Welcome screen when the list is empty", () => {
   // Arrange
-  render(<App />);
+  const fakeData = [];
+  Storage.prototype.getItem = jest.fn(() => JSON.stringify(fakeData));
+  render(<App/>)
 
   // Act
   const titleElement = screen.queryByText(/EIKA's shopping list/i);
 
   // Assert
+  screen.debug();
   expect(titleElement).toBeInTheDocument();
 });  
+
+test("Goes to the Shopping screen when the list is not empty", () => {
+  // Arrange
+  // spy on localStorage to follow it around
+  // "hack" the localStorage when is about to be used
+  // send the "fake data" to the App
+  const fakeItem = {
+    id: 0,
+    name: "Table with black leather",
+    price: 777,
+    completed: false,
+    imageURL: "",
+  };
+  const fakeList = [fakeItem];
+  const fakeData = JSON.stringify(fakeList);
+
+  Storage.prototype.getItem = jest.fn(() => fakeData);
+  render(<App />);
+
+  // Act
+  const titleElement = screen.queryByText(/Shopping List/i);
+  const loadedTasks = screen.queryByText(/table with black leather, 777:-/i);
+
+  // Assert
+  expect(titleElement).toBeInTheDocument();
+  expect(loadedTasks).toBeInTheDocument();
+});
