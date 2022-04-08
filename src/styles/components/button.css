@@ -7,7 +7,7 @@
     width: 200px;
     color:white;
     margin: 0 auto;
-    margin-bottom: var(--space-small);
+    margin-bottom: var(--space-medium);
     cursor: pointer;
 }
 

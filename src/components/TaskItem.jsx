@@ -11,11 +11,12 @@ export default function TaskItem({ item }) {
     }
   
     return (
-      <li>
-        <input type="checkbox"checked={completed}
-          onChange={onCheck}
-        />
-        {name}, {price}:-
+      <li className="task-item">
+        <div className="item-name">
+          <input type="checkbox"checked={completed} onChange={onCheck}/>
+          <span>{name},</span>
+        </div>
+        <span>{price}:-</span>
       </li>
     );
   }

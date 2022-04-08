@@ -5,7 +5,7 @@ export default function WelcomeScreen({ openModal }) {
   if (openModal === undefined) throw new Error("The openModal prop is missing");
 
   return (
-    <div>
+    <div className="welcome-screen">
       <img
         src={Image}
         alt="A woman with a shopping bag"
@@ -16,7 +16,7 @@ export default function WelcomeScreen({ openModal }) {
       list for the furniture you want to buy.
       To get started press the Add new item button and add an item by typing its name and price.
     </p>
-    <button onClick={openModal}>Add item</button>
+    <button className="button-primary" onClick={openModal}>Add item</button>
     </div>
   )
 }

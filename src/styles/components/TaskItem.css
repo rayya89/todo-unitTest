@@ -1,0 +1,6 @@
+.task-item {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--space-medium);
+    margin: 0 auto;
+}

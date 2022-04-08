@@ -21,12 +21,12 @@ export default function ShoppingScreen({ openModal }) {
 
 
   return (
-    <div>
+    <div className="shopping-screen">
         <h1>Shopping List</h1>
-        <Sorter />
+        <div className="sorter"><Sorter /></div>
         <TaskList list={pendingItems} />
-      <button onClick={openModal}>Add item</button>
-      <button onClick={() => setShowCompleted(!showCompleted)}>
+      <button className="button-primary" onClick={openModal}>Add item</button>
+      <button className="button-secondary" onClick={() => setShowCompleted(!showCompleted)}>
         {toggleLabel} completed items
       </button>
       {showCompleted && <TaskList list={completedItems} />}

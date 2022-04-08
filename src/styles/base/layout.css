@@ -17,6 +17,23 @@ img {
   height: auto;
 }
 
+
 .header img {
   width: 100px;
+  margin: var(--space-medium);
+}
+
+li ul {
+    text-decoration: none;
+}
+
+@media (min-width: 750px) {
+    .App {
+      max-width: 960px;
+      margin: 0 auto;
+    } 
+
+    .header img {
+        width: 200px; }
+
 }

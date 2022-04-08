@@ -8,10 +8,10 @@ export default function Sorter() {
   const { tasks, replaceTasks } = useTasks();
     
   return (
-    <section>
-      Sort by:
-      <button onClick={() => replaceTasks(tasks, sortByName(tasks))}>Name</button>
-      <button onClick={() => replaceTasks(tasks, sortByPrice(tasks))}>Price</button>
+    <section className="sorter">
+      <span>Sort by:</span>
+      <button className="button-secondary" onClick={() => replaceTasks(tasks, sortByName(tasks))}>Name</button>
+      <button className="button-secondary" onClick={() => replaceTasks(tasks, sortByPrice(tasks))}>Price</button>
     </section>
   );
 }

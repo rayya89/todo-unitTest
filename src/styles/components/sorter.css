@@ -1,0 +1,6 @@
+.sorter{
+    display:flex;
+    gap: var(--space-small);
+    margin: 0 auto;
+    margin-bottom: var(--space-small);
+}

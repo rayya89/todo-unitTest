@@ -7,7 +7,12 @@
 @import "./components/button.css";
 @import "./components/Modalform.css";
 @import "./components/InputField.css";
+@import "./components/sorter.css";
+@import "./components/TaskList.css";
+@import "./components/TaskItem.css";
+
 
 
 /* Screens */
-/* @import "./screens/WelcomeScreen.css"; */
+@import "./screens/WelcomeScreen.css";
+@import "./screens/ShoppingScreen.css";

@@ -1,0 +1,19 @@
+.welcome-screen h1 {
+    text-align: center;
+  }
+  
+  .welcome-screen img {
+    display: block;
+    width: 280px;
+    margin: 0 auto;
+  }
+
+  .welcome-screen p {
+    padding: var(--space-medium);
+  }
+
+  .welcome-screen {
+    display: flex;
+      flex-direction: column;
+      padding: var(--space-medium);
+  }
