@@ -1,9 +1,9 @@
 // Project files
 import TaskItem from "./TaskItem";
 
-export default function TaskList({ list, onCheck }) {
+export default function TaskList({ list, editList }) {
     const TaskItems = list.map((item) => (
-        <TaskItem key={item.id} item={item} onCheck={onCheck} />
+        <TaskItem key={item.id} item={item} editList = {editList} />
       ));
     
       // Safeguards

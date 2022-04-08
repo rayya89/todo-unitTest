@@ -15,25 +15,24 @@ export default function ShoppingScreen({ listState, openModal }) {
     const toggleLabel = showCompleted ? "Hide" : "View";
 
     // Methods
-  function onCheck(id) {
-    const clonedList = [...list];
-    const index = clonedList.findIndex((item) => item.id === id);
-    const editedItem = clonedList[index];
-
-    editedItem.completed = !editedItem.completed;
-    setList(clonedList);
-  }
+    function editList(editedItem) {
+      const clonedList = [...list];
+      const index = clonedList.findIndex((item) => item.id === editedItem.id);
+  
+      clonedList[index] = editedItem;
+      setList(clonedList);
+    }
 
   return (
     <div>
         <h1>Shopping List</h1>
         <Sorter listState={[list,setList]} />
-        <TaskList list={pendingItems} onCheck={onCheck} />
+        <TaskList list={pendingItems} editList={editList} />
       <button onClick={openModal}>Add item</button>
       <button onClick={() => setShowCompleted(!showCompleted)}>
         {toggleLabel} completed items
       </button>
-      {showCompleted && <TaskList list={completedItems} onCheck={onCheck} />}
+      {showCompleted && <TaskList list={completedItems} editList={editList} />}
     </div>
   )
 }
