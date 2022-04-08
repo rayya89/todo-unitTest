@@ -1,4 +1,5 @@
 import TaskItem from "../components/TaskItem";
+import Sorter from "../components/Sorter"
 
 export default function ShoppingScreen({ listState, openModal }) {
     const [list, setList] = listState;
@@ -21,6 +22,7 @@ export default function ShoppingScreen({ listState, openModal }) {
   return (
     <div>
         <h1>Shopping List</h1>
+        <Sorter listState={[list,setList]} />
       <ul>{TasksItems}</ul>
       <button onClick={openModal}>Add item</button>
     </div>
