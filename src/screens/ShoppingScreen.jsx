@@ -1,4 +1,4 @@
-import TaskItem from "../components/TaskItem";
+import TaskList from "../components/TaskList";
 import Sorter from "../components/Sorter"
 
 export default function ShoppingScreen({ listState, openModal }) {
@@ -14,16 +14,16 @@ export default function ShoppingScreen({ listState, openModal }) {
     setList(clonedList);
   }
 
-  // Component
-  const TasksItems = list.map((item) => (
-    <TaskItem key={item.id} item={item} onCheck={onCheck} />
-  ));
+  // // Component
+  // const TasksItems = list.map((item) => (
+  //   <TaskItem key={item.id} item={item} onCheck={onCheck} />
+  // ));
 
   return (
     <div>
         <h1>Shopping List</h1>
         <Sorter listState={[list,setList]} />
-      <ul>{TasksItems}</ul>
+        <TaskList list={list} onCheck={onCheck} />
       <button onClick={openModal}>Add item</button>
     </div>
   )
