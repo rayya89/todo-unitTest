@@ -6,6 +6,7 @@ import { useTasks } from "./state/TasksContext"
 import ModalForm from "./components/ModalForm";
 import ShoppingScreen from "./screens/ShoppingScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
+import Logo from "./assets/logo.png";
 
 export default function App() {
 
@@ -43,6 +44,9 @@ function saveData(key, getter) {
 
   return (
     <div className="App">
+      <header className="header">
+        <img src={Logo} alt="The words EIKA behind a circle background" />
+      </header>
       {tasks.length === 0 && <WelcomeScreen openModal={openModal}/>}
       {tasks.length >0 && <ShoppingScreen openModal={openModal}/>}
       <ModalForm

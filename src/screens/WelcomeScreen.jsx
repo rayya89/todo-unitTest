@@ -1,4 +1,4 @@
-import React from 'react'
+import Image from "../assets/urban-shopping.png";
 
 export default function WelcomeScreen({ openModal }) {
   //Safeguard
@@ -6,6 +6,10 @@ export default function WelcomeScreen({ openModal }) {
 
   return (
     <div>
+      <img
+        src={Image}
+        alt="A woman with a shopping bag"
+      />
     <h1>EIKA's shopping list</h1>
     <p>
       Welcome to EIKA’s shopping list. Here you will be able to create a todo
